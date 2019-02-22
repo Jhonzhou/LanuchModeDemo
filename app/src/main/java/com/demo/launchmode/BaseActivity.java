@@ -28,6 +28,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Log.e(TAG,"oNewIntent， open ： "+TAG);
+        setIntent(intent);
     }
 
     private void print() {
@@ -40,7 +41,7 @@ public class BaseActivity extends AppCompatActivity {
         if (runningTasks != null) {
             for (ActivityManager.RunningTaskInfo runningTask : runningTasks) {
                 Log.e(TAG, "task Info   ~~~  numActivities : " + runningTask.numActivities+"~~~ taskId: "+runningTask.id+" ----topActivity: " + runningTask.topActivity.getShortClassName() + "~~~~~ baseActivity: " + runningTask.baseActivity.getShortClassName()
-                        );
+            +            " task name : "+runningTask.description);
             }
         }
     }
