@@ -20,13 +20,14 @@ public class BaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_base);
         TextView title = findViewById(R.id.text_title);
         title.setText(TAG);
-        Log.e("open activity", "open : " + TAG + "task Id ： " + getTaskId());
+        Log.e("open activity", "open : " + TAG + " taskId ： " + getTaskId());
+        Log.d(TAG,"生命周期：onCreate");
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.e(TAG,"on new Intent， open ： "+TAG);
+        Log.e(TAG,"oNewIntent， open ： "+TAG);
     }
 
     private void print() {
@@ -68,5 +69,35 @@ public class BaseActivity extends AppCompatActivity {
     public void openInstance(View view) {
         Intent intent = new Intent(getApplicationContext(), SingleInstanceActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG,"生命周期：onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG,"生命周期：onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG,"生命周期：onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG,"生命周期：onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG,"生命周期：onDestroy");
     }
 }
