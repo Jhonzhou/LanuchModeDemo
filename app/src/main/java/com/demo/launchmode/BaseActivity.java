@@ -19,7 +19,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         TextView title = findViewById(R.id.text_title);
-        title.setText(TAG);
+        title.setText(TAG+":"+getTaskId());
         Log.e("open activity", "open : " + TAG + " taskId ： " + getTaskId());
         Log.d(TAG,"生命周期：onCreate");
     }
